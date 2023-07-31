@@ -25,6 +25,16 @@ if(req.method === "GET"){
         statusCode :200
     })
 }
+
+if(req.method === "POST"){
+    const news  = await newCollection.insertOne(req.body);
+    res.send({
+        message: "Success",
+        data: news,
+        statusCode :200
+    })
+}
+
 } finally {
     // Ensures that the client will close when you finish/error
     // await client.close();
